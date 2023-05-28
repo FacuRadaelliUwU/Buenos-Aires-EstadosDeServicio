@@ -6,6 +6,14 @@ const axios = require('axios');
 const app = express();
 const port = 3000;
 
+// Middleware para permitir solicitudes CORS desde cualquier origen
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+
 // Endpoint para obtener el estado de los trenes
 app.get('/estado/trenes', (req, res) => {
   const url = 'https://www.argentina.gob.ar/transporte/trenes-argentinos/modificaciones-en-el-servicio-y-novedades';
