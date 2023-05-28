@@ -2,17 +2,12 @@ const https = require('https');
 const cheerio = require('cheerio');
 const express = require('express');
 const axios = require('axios');
+const cors = require('cors'); // Importar la biblioteca CORS
 
 const app = express();
 const port = 3000;
 
-// Middleware para permitir solicitudes CORS desde cualquier origen
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
+app.use(cors()); // Habilitar CORS para todas las solicitudes
 
 // Endpoint para obtener el estado de los trenes
 app.get('/estado/trenes', (req, res) => {
