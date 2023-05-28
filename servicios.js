@@ -2,7 +2,7 @@ const https = require('https');
 const cheerio = require('cheerio');
 const express = require('express');
 const axios = require('axios');
-const cors = require('cors'); // Importar la biblioteca CORS
+const cors = require('cors'); // Importar la biblioteca cors
 
 const app = express();
 const port = 3000;
